@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore - Cosmo Guide</title>
+    <link rel="stylesheet" href="explore.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">Cosmo Guide</div>
+        <ul class="nav-links">
+            <li><a href="explore.html" class="active">Explore</a></li>
+            <li><a href="#">Planet details</a></li>
+            <li><a href="#">Quiz</a></li>
+        </ul>
+        <div class="auth-links">
+            <a href="login.html" class="btn-nav">log in</a>
+            <a href="#" class="btn-nav outline">Sign up</a>
+        </div>
+    </nav>
+
+    <div class="explore-layout">
+        <aside class="sidebar">
+            <h2>Filters</h2>
+
+            <div class="filter-section">
+                <h3>type</h3>
+                <label><input type="checkbox" name="type" value="Planet"> Planet</label>
+                <label><input type="checkbox" name="type" value="dwarf planet"> dwarf planet</label>
+                <label><input type="checkbox" name="type" value="moon"> moon</label>
+            </div>
+
+            <div class="filter-section">
+                <h3>atmosphere</h3>
+                <select id="atmosphere-select">
+                    <option value="All">All</option>
+                    <option value="None">None</option>
+                    <option value="Carbon Dioxide">Carbon Dioxide</option>
+                    <option value="Nitrogen">Nitrogen</option>
+                </select>
+            </div>
+
+            <div class="filter-section">
+                <h3>Distance from Sun</h3>
+                <input type="range" id="distance" min="0" max="50" step="0.1" value="50">
+                <span id="distance-val">50 AU</span>
+            </div>
+
+            <div class="search-section">
+                <input type="text" id="search-input" placeholder="Search...">
+                <button id="search-btn">Search</button>
+            </div>
+        </aside>
+
+        <main class="content">
+            <h2>List of planets</h2>
+            <div id="planet-grid" class="planet-grid">
+            </div>
+        </main>
+    </div>
+
+    <script src="explore.js"></script>
+</body>
+
+</html>
