@@ -2,19 +2,33 @@
 // setup_db.php
 try {
     // Create or open the SQLite database file
-    $db = new PDO('sqlite:cosmoguide.db');
+    $db = new PDO('sqlite:' . __DIR__ . '/cosmoguide.db');
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     // Create Users Table
     $db->exec("CREATE TABLE IF NOT EXISTS users (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
+        full_name TEXT,
         email TEXT UNIQUE,
         password TEXT
     )");
 
+    // Add full_name column if upgrading an existing database
+    $columns = $db->query("PRAGMA table_info(users)")->fetchAll(PDO::FETCH_ASSOC);
+    $hasFullName = false;
+    foreach ($columns as $column) {
+        if ($column['name'] === 'full_name') {
+            $hasFullName = true;
+            break;
+        }
+    }
+    if (!$hasFullName) {
+        $db->exec("ALTER TABLE users ADD COLUMN full_name TEXT");
+    }
+
     // Insert a test user (Password is 'password123')
     $passwordHash = password_hash('password123', PASSWORD_DEFAULT);
-    $db->exec("INSERT OR IGNORE INTO users (email, password) VALUES ('test@cosmoguide.com', '$passwordHash')");
+    $db->exec("INSERT OR IGNORE INTO users (full_name, email, password) VALUES ('Test User', 'test@cosmoguide.com', '$passwordHash')");
 
     // Create Planets Table
     $db->exec("CREATE TABLE IF NOT EXISTS planets (

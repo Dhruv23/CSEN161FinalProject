@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Cosmo Guide</title>
+    <link rel="stylesheet" href="register.css">
+</head>
+
+<body>
+    <div class="register-container">
+        <div class="image-section">
+            <div class="image-overlay">
+                <h2>Explore the Universe</h2>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <div class="form-wrapper">
+                <h1>CREATE an ACCOUNT</h1>
+                <p class="subtitle">Join today!</p>
+
+                <div id="error-message" class="error-hidden"></div>
+
+                <form id="register-form" action="register.php" method="POST">
+                    <div class="input-group">
+                        <label for="full-name">full name</label>
+                        <input type="text" id="full-name" name="full_name" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="email">email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="confirm-password">Confirm Password</label>
+                        <input type="password" id="confirm-password" name="confirm_password" required>
+                    </div>
+
+                    <div class="form-actions">
+                        <label class="agree-terms">
+                            <input type="checkbox" name="agree" required> I agree to receive email updates from Cosmo Guide.
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn-primary">sign up</button>
+
+                    <p class="login-link">Already have an account? <a href="login.html">Log in</a></p>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="register.js"></script>
+</body>
+
+</html>

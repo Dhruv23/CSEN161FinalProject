@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $_POST['password'] ?? '';
 
     try {
-        $db = new PDO('sqlite:cosmoguide.db');
+        $db = new PDO('sqlite:' . __DIR__ . '/cosmoguide.db');
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         $stmt = $db->prepare("SELECT id, password FROM users WHERE email = ?");

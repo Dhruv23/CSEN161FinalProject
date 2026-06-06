@@ -3,7 +3,7 @@
 header('Content-Type: application/json');
 
 try {
-    $db = new PDO('sqlite:cosmoguide.db');
+    $db = new PDO('sqlite:' . __DIR__ . '/cosmoguide.db');
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     $query = "SELECT * FROM planets WHERE 1=1";
