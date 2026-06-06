@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planet Details - Cosmo Guide</title>
+    <link rel="stylesheet" href="planet.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo-group">
+            <a href="index.html" class="logo">Cosmo Guide</a>
+            <span id="welcome-user" class="welcome-user hidden"></span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="explore.html">Explore</a></li>
+            <li><a href="planet.html" class="active">Planet details</a></li>
+            <li><a href="quiz.html">Quiz</a></li>
+        </ul>
+        <div class="auth-links">
+            <a href="login.html" class="btn-nav">log in</a>
+            <a href="register.html" class="btn-nav outline">Sign up</a>
+        </div>
+    </nav>
+
+    <div class="planet-layout">
+        <div class="top-row">
+            <a href="explore.html" class="back-link">&lt; Back to Explore</a>
+        </div>
+
+        <div class="hero-section">
+            <div class="planet-visual-container">
+                <div class="planet-sphere" id="planet-sphere"></div>
+                <div class="planet-shadow"></div>
+            </div>
+            <div class="planet-info-container">
+                <h1 id="planet-name">Loading...</h1>
+                <p class="planet-desc">Details on celestial body...</p>
+                <div class="data-box" id="quick-stats">
+                </div>
+            </div>
+        </div>
+
+        <div class="tabs-container">
+            <div class="tab-buttons">
+                <button class="tab-btn active" data-tab="overview">Overview</button>
+                <button class="tab-btn" data-tab="atmosphere">Atmosphere</button>
+                <button class="tab-btn" data-tab="moon">Moon</button>
+                <button class="tab-btn" data-tab="facts">Facts</button>
+                <button class="tab-btn" data-tab="images">Images</button>
+            </div>
+
+            <div class="tab-content active" id="overview">
+                <h3>Overview</h3>
+                <p id="overview-text">Loading information...</p>
+            </div>
+            <div class="tab-content" id="atmosphere">
+                <h3>Atmospheric Composition</h3>
+                <p id="atmosphere-text">Loading information...</p>
+            </div>
+            <div class="tab-content" id="moon">
+                <h3>Moons & Satellites</h3>
+                <p>Detailed moon data will appear here.</p>
+            </div>
+            <div class="tab-content" id="facts">
+                <h3>Quick Facts</h3>
+                <ul id="facts-list"></ul>
+            </div>
+            <div class="tab-content" id="images">
+                <h3>Image Gallery</h3>
+                <div class="image-gallery-placeholder">
+                    <div class="gallery-img">🌍</div>
+                    <div class="gallery-img">🔭</div>
+                    <div class="gallery-img">🛰️</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="planet.js"></script>
+    <script src="user.js"></script>
+</body>
+
+</html>

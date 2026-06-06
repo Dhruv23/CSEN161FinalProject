@@ -1,0 +1,238 @@
+:root {
+    --bg-dark: #050510;
+    --bg-panel: #111122;
+    --text-light: #e0e0e0;
+    --accent-blue: #00f0ff;
+    --accent-purple: #8a2be2;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+}
+
+/* Navbar styling inherited from your existing setup */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: rgba(17, 17, 34, 0.9);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo-group {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--accent-blue);
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.nav-links a.active {
+    border-bottom: 2px solid var(--accent-blue);
+}
+
+.auth-links .btn-nav {
+    color: white;
+    text-decoration: none;
+    padding: 8px 16px;
+    margin-left: 10px;
+    text-transform: uppercase;
+}
+
+.btn-nav.outline {
+    border: 1px solid var(--accent-blue);
+    border-radius: 4px;
+}
+
+/* Page Layout */
+.planet-layout {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.back-link {
+    color: var(--accent-blue);
+    text-decoration: none;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.hero-section {
+    display: flex;
+    margin-top: 2rem;
+    gap: 4rem;
+    align-items: flex-start;
+}
+
+.planet-visual-container {
+    flex: 0 0 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.planet-sphere {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #6b93d6, #1a3a6b);
+    box-shadow: inset -20px -20px 40px rgba(0, 0, 0, 0.8), 0 0 40px rgba(0, 240, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.planet-shadow {
+    width: 200px;
+    height: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    margin-top: 20px;
+    filter: blur(8px);
+}
+
+.planet-info-container {
+    flex: 1;
+}
+
+#planet-name {
+    font-size: 4rem;
+    margin: 0 0 0.5rem 0;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    background: -webkit-linear-gradient(var(--accent-blue), var(--accent-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.planet-desc {
+    color: #a0a0a0;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+.data-box {
+    background-color: var(--bg-panel);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    border-radius: 8px;
+    min-height: 100px;
+}
+
+/* Tabs */
+.tabs-container {
+    margin-top: 4rem;
+}
+
+.tab-buttons {
+    display: flex;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    gap: 1rem;
+}
+
+.tab-btn {
+    background: none;
+    border: none;
+    color: #a0a0a0;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.tab-btn:hover {
+    color: white;
+}
+
+.tab-btn.active {
+    color: var(--accent-blue);
+    border-bottom: 3px solid var(--accent-blue);
+}
+
+.tab-content {
+    display: none;
+    padding: 2rem 0;
+    animation: fadeIn 0.3s ease;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.tab-content h3 {
+    color: var(--accent-purple);
+    margin-top: 0;
+}
+
+.tab-content p,
+.tab-content ul {
+    color: #cccccc;
+    line-height: 1.6;
+}
+
+.image-gallery-placeholder {
+    display: flex;
+    gap: 1rem;
+}
+
+.gallery-img {
+    width: 150px;
+    height: 100px;
+    background-color: var(--bg-panel);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .tab-buttons {
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz - Cosmo Guide</title>
+    <link rel="stylesheet" href="quiz.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo-group">
+            <a href="index.html" class="logo">Cosmo Guide</a>
+            <span id="welcome-user" class="welcome-user hidden"></span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="explore.html">Explore</a></li>
+            <li><a href="planet.html">Planet details</a></li>
+            <li><a href="quiz.html" class="active">Quiz</a></li>
+        </ul>
+        <div class="auth-links">
+            <a href="login.html" class="btn-nav">log in</a>
+            <a href="register.html" class="btn-nav outline">Sign up</a>
+        </div>
+    </nav>
+
+    <div class="quiz-layout">
+        <aside class="quiz-sidebar">
+            <h2>Quiz Categories</h2>
+            <ul class="category-list">
+                <li class="active">General Astronomy</li>
+                <li>Moons</li>
+                <li>Space Missions</li>
+                <li>Solar System Basics</li>
+            </ul>
+        </aside>
+
+        <main class="quiz-main">
+            <div class="quiz-header">
+                <h2>Planet Quiz</h2>
+                <span class="question-tracker">Question <span id="q-current">1</span> of <span
+                        id="q-total">10</span></span>
+            </div>
+
+            <div class="question-container">
+                <h3 id="question-text">Loading question...</h3>
+
+                <div class="options-grid" id="options-container">
+                </div>
+
+                <button id="next-btn" class="btn-primary hidden">Next Question</button>
+            </div>
+        </main>
+
+        <aside class="score-panel">
+            <div class="score-card">
+                <h3>Score</h3>
+                <p id="score-val" class="gradient-text">0</p>
+            </div>
+            <div class="score-card">
+                <h3>Streak</h3>
+                <p id="streak-val" class="gradient-text">0</p>
+            </div>
+            <div class="score-card">
+                <h3>Best</h3>
+                <p id="best-val" class="gradient-text">0</p>
+            </div>
+        </aside>
+    </div>
+
+    <script src="quiz.js"></script>
+    <script src="user.js"></script>
+</body>
+
+</html>

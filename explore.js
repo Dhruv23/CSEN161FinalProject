@@ -41,9 +41,15 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             // Render new cards
+            // New
             data.forEach(planet => {
-                const card = document.createElement('div');
+                const card = document.createElement('a'); // Change div to anchor tag
+                card.href = `planet.html?id=${planet.id}`; // Add the routing parameter
                 card.className = 'planet-card';
+                card.style.display = 'block'; // Ensure the anchor behaves like a block element
+                card.style.textDecoration = 'none'; // Remove standard link underlining
+                card.style.color = 'inherit'; // Keep the text colors you defined
+
                 card.innerHTML = `
                     <div class="planet-icon"></div>
                     <h3>${planet.name}</h3>
