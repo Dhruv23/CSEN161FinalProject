@@ -122,18 +122,27 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     };
 
-    // Get planet ID from URL
     const urlParams = new URLSearchParams(window.location.search);
-    const planetId = urlParams.get('id') || 3;
+    const planetId = urlParams.get('id');
+    const planetName = urlParams.get('name') || 'Earth';
+    const apiUrl = planetId
+        ? `planet.php?id=${planetId}`
+        : `planet.php?name=${encodeURIComponent(planetName)}`;
 
     try {
 
-        const response = await fetch(`planet.php?id=${planetId}`);
+        const response = await fetch(apiUrl);
         const planet = await response.json();
 
         if (planet && !planet.error) {
 
-            document.getElementById('planet-name').textContent = planet.name;
+            document.title = `${planet.name} - Planet Details - Cosmo Guide`;
+            document.getElementById('planet-name').textContent = planet.name.toUpperCase();
+
+            const descEl = document.querySelector('.planet-desc');
+            if (descEl) {
+                descEl.textContent = `Details on ${planet.name}`;
+            }
 
             document.getElementById('quick-stats').innerHTML = `
                 <p><strong>Type:</strong> ${planet.type}</p>
@@ -141,11 +150,17 @@ document.addEventListener('DOMContentLoaded', async () => {
                 <p><strong>Atmosphere:</strong> ${planet.atmosphere}</p>
             `;
 
-            document.getElementById('overview-text').textContent =
-                `${planet.name} is classified as a ${planet.type} located ${planet.distance_from_sun} AU from the Sun.`;
+            let overviewText = `${planet.name} is classified as a ${planet.type} located ${planet.distance_from_sun} AU from the Sun.`;
+            if (planet.name.toLowerCase() === 'earth') {
+                overviewText += ' It is the third planet from the Sun and the only known world to support life.';
+            }
+            document.getElementById('overview-text').textContent = overviewText;
 
-            document.getElementById('atmosphere-text').textContent =
-                `The primary atmospheric composition consists of: ${planet.atmosphere}.`;
+            let atmosphereText = `The primary atmospheric composition consists of: ${planet.atmosphere}.`;
+            if (planet.name.toLowerCase() === 'earth') {
+                atmosphereText = `${planet.name}'s atmosphere is primarily composed of ${planet.atmosphere}, which helps regulate surface temperature and supports life.`;
+            }
+            document.getElementById('atmosphere-text').textContent = atmosphereText;
 
             const extra = planetExtraData[planet.name.toLowerCase()];
 

@@ -2,8 +2,8 @@
 // planet.php
 header('Content-Type: application/json');
 
-if (!isset($_GET['id'])) {
-    echo json_encode(['error' => 'No ID provided']);
+if (!isset($_GET['id']) && !isset($_GET['name'])) {
+    echo json_encode(['error' => 'No ID or name provided']);
     exit;
 }
 
@@ -11,8 +11,14 @@ try {
     $db = new PDO('sqlite:' . __DIR__ . '/cosmoguide.db');
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    $stmt = $db->prepare("SELECT * FROM planets WHERE id = ?");
-    $stmt->execute([$_GET['id']]);
+    if (isset($_GET['name'])) {
+        $stmt = $db->prepare("SELECT * FROM planets WHERE name = ?");
+        $stmt->execute([$_GET['name']]);
+    } else {
+        $stmt = $db->prepare("SELECT * FROM planets WHERE id = ?");
+        $stmt->execute([$_GET['id']]);
+    }
+
     $planet = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if ($planet) {
