@@ -236,3 +236,30 @@ body {
         white-space: nowrap;
     }
 }
+
+.planet-image {
+    width: 280px;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 0 40px rgba(0,255,255,.4);
+}
+
+.planet-gallery {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.gallery-photo {
+    width: 250px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,.15);
+}
+
+#moon-list li,
+#facts-list li {
+    margin-bottom: 12px;
+}

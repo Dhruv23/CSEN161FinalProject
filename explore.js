@@ -51,10 +51,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 card.style.color = 'inherit'; // Keep the text colors you defined
 
                 card.innerHTML = `
-                    <div class="planet-icon"></div>
+                    <img
+                        class="planet-thumb"
+                        src="images/planets/${planet.name.toLowerCase()}.jpg"
+                        alt="${planet.name}"
+                    >
+
                     <h3>${planet.name}</h3>
-                    <p style="color: #888; font-size: 0.9em;">${planet.type}</p>
-                    <p style="font-size: 0.8em; margin-top: 10px;">Dist: ${planet.distance_from_sun} AU</p>
+
+                    <p style="color: #888; font-size: 0.9em;">
+                        ${planet.type}
+                    </p>
+
+                    <p style="font-size: 0.8em; margin-top: 10px;">
+                        Dist: ${planet.distance_from_sun} AU
+                    </p>
                 `;
                 grid.appendChild(card);
             });
