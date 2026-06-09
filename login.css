@@ -142,3 +142,84 @@ h1 {
     border-radius: 4px;
     margin-bottom: 1rem;
 }
+
+.success-hidden {
+    display: none;
+}
+
+.success-visible {
+    background-color: rgba(0, 240, 255, 0.1);
+    border: 1px solid var(--accent-blue);
+    color: var(--accent-blue);
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+.modal {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(5, 5, 16, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 1rem;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-content {
+    background-color: #111122;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 2rem;
+    width: 100%;
+    max-width: 400px;
+}
+
+.modal-content h2 {
+    margin: 0 0 0.5rem;
+    font-size: 1.75rem;
+    background: -webkit-linear-gradient(var(--accent-blue), var(--accent-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.modal-subtitle {
+    margin: 0 0 1.5rem;
+    color: #a0a0a0;
+    font-size: 0.95rem;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.modal-actions .btn-primary,
+.modal-actions .btn-secondary {
+    flex: 1;
+    width: auto;
+}
+
+.btn-secondary {
+    padding: 14px;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--text-light);
+    font-weight: bold;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: border-color 0.2s ease;
+}
+
+.btn-secondary:hover {
+    border-color: var(--accent-blue);
+}
